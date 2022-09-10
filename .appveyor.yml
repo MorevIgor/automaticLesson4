@@ -12,7 +12,7 @@ install:
 # запускаем SUT (& означает, что в фоновом режиме - не блокируем терминал для запуска тестов)
 - java -jar ./artifacts/app-card-delivery.jar &
 
-build_script:
-  
+build_script:  
   - chmod +x gradlew
-  ./gradlew test --info "-Dselenide.headless=true"
+  ./gradlew test --info
+  gradlew test -Dselenide.headless=true

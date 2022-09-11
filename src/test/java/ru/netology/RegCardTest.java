@@ -135,19 +135,6 @@ public class RegCardTest {
         assertEquals("Поле обязательно для заполнения", text);
     }
 
-//    @Test // не должно быть возможности ввести только фамилию или имя. должны быть обе части.
-//    void negativeNotSurname() {
-//        $x("//*[@data-test-id=\"city\"]//self::input").setValue("Москва");
-//        String verificationDate = LocalDate.now().plusDays(3).format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
-//        $x("//*[@data-test-id=\"date\"]//self::input").doubleClick().sendKeys(Keys.DELETE + verificationDate);
-//        $x("//*[@data-test-id=\"name\"]//self::input").setValue("Иван");
-//        $x("//*[@data-test-id=\"phone\"]//self::input").setValue("+79876543210");
-//        $x("//*[@data-test-id=\"agreement\"]").click();
-//        $x("//*[@class=\"button__text\"]").click();
-//        String text = $x("//*[@data-test-id=\"name\"]//child::span[@class=\"input__sub\"]").should(visible, Duration.ofSeconds(10)).getText();
-//        assertEquals("???", text);
-//    }
-
     @Test
     void negativeNotCorrectPhone() {
         $x("//*[@data-test-id=\"city\"]//self::input").setValue("Москва");
@@ -185,5 +172,4 @@ public class RegCardTest {
         String text = $x("//*[@data-test-id=\"agreement\"]").should(visible, Duration.ofSeconds(10)).getText();
         assertEquals("Я соглашаюсь с условиями обработки и использования моих персональных данных", text);
     }
-
 }
